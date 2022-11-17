@@ -1,12 +1,9 @@
 package handlers
 
 import (
-	"context"
 	"database/sql"
-	"log"
-	"github.com/zob456/snapshot/api/data"
-	"github.com/zob456/snapshot/api/utils"
 	"github.com/gofiber/fiber/v2"
+	"github.com/zob456/snapshot/api/data"
 )
 
 func GetUserData(db *sql.DB) fiber.Handler {

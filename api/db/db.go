@@ -3,6 +3,7 @@ package db
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -20,7 +21,7 @@ func ConnectDB() *sql.DB {
 		host, port, user, password, dbname, sslMode)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 	return db
 

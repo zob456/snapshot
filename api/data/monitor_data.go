@@ -8,6 +8,7 @@ import (
 
 func SelectNetworkDeviceData(db *sql.DB, machineID string) (*models.NetworkDevice, error) {
 
+	// comment below is used by Intellij IDEA to provide sql syntax support & sql verification from the data source
 	/*language=PostgreSQL*/
 	const query = `
 		SELECT
@@ -40,6 +41,7 @@ func SelectNetworkDeviceData(db *sql.DB, machineID string) (*models.NetworkDevic
 
 func SelectAllNetworkDeviceData(db *sql.DB, machineID string) (*models.NetworkDevice, error) {
 
+	// comment below is used by Intellij IDEA to provide sql syntax support & sql verification from the data source
 	/*language=PostgreSQL*/
 	const query = `
 		SELECT

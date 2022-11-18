@@ -1,0 +1,3 @@
+package models
+
+type CreateNetworkDeviceData NetworkDevice

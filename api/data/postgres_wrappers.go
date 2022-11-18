@@ -47,3 +47,16 @@ func PostgresScanOneRow(db *sql.DB, query string, params ...interface{}) (*sql.R
 	row := stmt.QueryRow(params...)
 	return row, nil
 }
+
+func PostgresScanRows(db *sql.DB, query string, params ...interface{}) (*sql.Rows, error) {
+	log.Printf(fmt.Sprintf("Query: %+v", query))
+	stmt, err := db.Prepare(query)
+	if err != nil {
+		return nil, err
+	}
+	rows, err := stmt.Query(params...)
+	if err != nil {
+		return nil, err
+	}
+	return rows, nil
+}

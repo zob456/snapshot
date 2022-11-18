@@ -3,8 +3,8 @@ package models
 import "time"
 
 type NetworkDevice struct {
-	MachineID int `json:"machineId"`
-	Status
+	MachineID string `json:"machineId"`
+	Status `json:"status"`
 	LastLoggedIn string `json:"lastLoggedIn"`
 	SysTime time.Time `json:"sysTime"`
 }

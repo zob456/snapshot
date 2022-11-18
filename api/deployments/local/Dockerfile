@@ -30,12 +30,12 @@ ENV GOARCH=amd64
 
 COPY api/ api/
 
-RUN go build -o /build /snapshot/api
+RUN go build -o /build /snapshot/api/cmd
 
 # --- build -------------------------------------------------------------
 FROM builder as build
 
-RUN go build -tags netgo -ldflags "-X main.version=0.0.0 -w -s -X main.envType=production" -o bin/build /snapshot/api
+RUN go build -tags netgo -ldflags "-X main.version=0.0.0 -w -s -X main.envType=production" -o bin/build /snapshot/api/cmd
 
 # --- deployment -------------------------------------------------------------
 FROM scratch as production

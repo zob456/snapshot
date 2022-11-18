@@ -1,6 +1,7 @@
 package routing
 
 const (
-	User         = "/user"
-	UpdateAvatar = User + "/update-avatar"
+	Device       = "/api/v1/device"
+	SingleDevice = Device + "/:id"
+	CreateDevice = Device + "/new"
 )

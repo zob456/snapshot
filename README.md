@@ -1,6 +1,7 @@
 # Snapshot - GoLang REST API for network machine checking
 
-### Please run `bin/init.sh` to make sure you have all the necessary software installed. (script will install any missing critical software)
+### To verify that you have the tools needed for this project / install them:
+Please run `bin/init.sh` to make sure you have all the necessary software installed. (script will install any missing critical software)
 
 This project is way over-engineered beyond what something this simple should be.
 I decided to go overboard by creating wrapper functions & distinct error handlers to show more detail around my thought process around engineering. 

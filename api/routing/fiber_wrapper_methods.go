@@ -7,21 +7,21 @@ import (
 
 type RouterConfig struct {
 	DB          *sql.DB
-	PerchRouter fiber.Router
+	Router fiber.Router
 }
 
 func (c *RouterConfig) GET(path string, handler fiber.Handler) fiber.Router {
-	return c.PerchRouter.Get(path, handler)
+	return c.Router.Get(path, handler)
 }
 
 func (c *RouterConfig) POST(path string, handler fiber.Handler) fiber.Router {
-	return c.PerchRouter.Post(path, handler)
+	return c.Router.Post(path, handler)
 }
 
 func (c *RouterConfig) PUT(path string, handler fiber.Handler) fiber.Router {
-	return c.PerchRouter.Put(path, handler)
+	return c.Router.Put(path, handler)
 }
 
 func (c *RouterConfig) DELETE(path string, handler fiber.Handler) fiber.Router {
-	return c.PerchRouter.Delete(path,  handler)
+	return c.Router.Delete(path,  handler)
 }

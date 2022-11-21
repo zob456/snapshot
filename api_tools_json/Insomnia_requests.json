@@ -1,0 +1,128 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-11-21T05:41:35.730Z",
+  "__export_source": "insomnia.desktop.app:v2022.6.0",
+  "resources": [
+    {
+      "_id": "req_3399f6b589d74b9594c661cb11152f8e",
+      "parentId": "wrk_2a85cb65a76044be86e086b639046320",
+      "modified": 1668749591023,
+      "created": 1668748601238,
+      "url": "http://localhost:8080/api/v1/device",
+      "name": "All Devices",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1668748601238,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_2a85cb65a76044be86e086b639046320",
+      "parentId": null,
+      "modified": 1668748597715,
+      "created": 1668748597715,
+      "name": "Snapshot",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_5109db77f4b9424a8ae5a7f9deee1497",
+      "parentId": "wrk_2a85cb65a76044be86e086b639046320",
+      "modified": 1669009158762,
+      "created": 1668749789802,
+      "url": "http://localhost:8080/api/v1/device/new",
+      "name": "Create Device",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"machineId\": \"C513D8B9-2F14-4D2F-8DB1-AA66A5C62C93\",\n\t\"status\": {\n\t\t\"cpuTemp\": 900,\n\t\t\"fanSpeed\": 1249,\n\t\t\"HDDSpace\": 256\n\t},\n\t\"lastLoggedIn\": \"zob456\",\n\t\"sysTime\": \"2022-11-18T05:48:26+00:00\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_a0451112b69248418072fcba32064fe3"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663372985083.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_ec3196701fc94d4994baa7e71cbc8cb0",
+      "parentId": "wrk_2a85cb65a76044be86e086b639046320",
+      "modified": 1668749583405,
+      "created": 1668749291371,
+      "url": "http://localhost:8080/api/v1/device/FA52FE06-35BC-499E-8103-8C980B3437F2",
+      "name": "Single Device",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1657997368929,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_0b2f275b0523ae17db1908f3460c843f83a43d7c",
+      "parentId": "wrk_2a85cb65a76044be86e086b639046320",
+      "modified": 1668748597727,
+      "created": 1668748597727,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1668748597727,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_0b2f275b0523ae17db1908f3460c843f83a43d7c",
+      "parentId": "wrk_2a85cb65a76044be86e086b639046320",
+      "modified": 1668748597728,
+      "created": 1668748597728,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_62ab261f7a934c5ca2e610d10011b16e",
+      "parentId": "wrk_2a85cb65a76044be86e086b639046320",
+      "modified": 1668748597723,
+      "created": 1668748597723,
+      "fileName": "Snapshot",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}

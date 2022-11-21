@@ -2,11 +2,12 @@ package data
 
 import (
 	"database/sql"
-
+	"github.com/google/uuid"
 	"github.com/zob456/snapshot/api/models"
+	"log"
 )
 
-func SelectNetworkDeviceData(db *sql.DB, machineID string) (*models.NetworkDevice, error) {
+func SelectNetworkDeviceData(db *sql.DB, machineID uuid.UUID) (*models.NetworkDevice, error) {
 	// comment below is used by Intellij IDEA to provide sql syntax support & sql verification from the data source
 	/*language=PostgreSQL*/
 	const query = `
@@ -75,7 +76,7 @@ func SelectAllNetworkDeviceData(db *sql.DB) ([]*models.NetworkDevice, error) {
 	return networkDevices, nil
 }
 
-func CreateNetworkDevice(db *sql.DB, device models.CreateNetworkDeviceData) error {
+func CreateNetworkDevice(db *sql.DB, device models.NetworkDevice) error {
 	// comment below is used by Intellij IDEA to provide sql syntax support & sql verification from the data source
 	/*language=PostgreSQL*/
 	const deviceQuery = `
@@ -104,8 +105,26 @@ func CreateNetworkDevice(db *sql.DB, device models.CreateNetworkDeviceData) erro
 
 	err = PostgresUpdateColumnDataOneRow(db, statusQuery, device.MachineID, device.CpuTemp, device.HddSpace, device.FanSpeed)
 	if err != nil {
+		secondaryErr := statusFailureRollback(db)
+		if secondaryErr != nil {
+			log.Printf("ERROR: FAILED to rollback network device data after status table failed to update for device ID: %s", device.MachineID)
+		}
 		return err
 	}
 
+	return nil
+}
+
+func statusFailureRollback(db *sql.DB) error {
+	// comment below is used by Intellij IDEA to provide sql syntax support & sql verification from the data source
+	/*language=PostgreSQL*/
+	const deviceQuery = `
+		DELETE FROM "Network".device
+		WHERE "ID" = $1;`
+
+	err := PostgresUpdateColumnDataOneRow(db, deviceQuery)
+	if err != nil {
+		return err
+	}
 	return nil
 }

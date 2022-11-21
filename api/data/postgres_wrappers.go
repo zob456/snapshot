@@ -30,7 +30,13 @@ func PostgresUpdateColumnDataOneRow(db *sql.DB, query string, params ...interfac
 		return err
 	}
 	results, err := stmt.Exec(params...)
+	if err != nil {
+		return err
+	}
 	err = getRowsAffected(results, 1)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -39,7 +45,7 @@ func PostgresScanOneRow(db *sql.DB, query string, params ...interface{}) (*sql.R
 		noParamsErr := errors.New("no params were passed")
 		return nil, noParamsErr
 	}
-	log.Printf(fmt.Sprintf("Query: %+v", query))
+	log.Printf(fmt.Sprintf("Query: %+v \n", query))
 	stmt, err := db.Prepare(query)
 	if err != nil {
 		return nil, err

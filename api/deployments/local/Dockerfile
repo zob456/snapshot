@@ -32,20 +32,8 @@ COPY api/ api/
 
 RUN go build -o /build /snapshot/api/cmd
 
-# --- build -------------------------------------------------------------
-FROM builder as build
-
-RUN go build -tags netgo -ldflags "-X main.version=0.0.0 -w -s -X main.envType=production" -o bin/build /snapshot/api/cmd
-
-# --- deployment -------------------------------------------------------------
-FROM scratch as production
-
-COPY --from=build /snapshot/bin/build /
-EXPOSE 8000
-ENTRYPOINT  ["/build"]
-
 # ---- local ----------------------------------------------------------------------------
 FROM builder as local
 
-EXPOSE 8000
+EXPOSE 8080
 ENTRYPOINT  ["/build"]

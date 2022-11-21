@@ -3,6 +3,7 @@ package utils
 import (
 	"github.com/gofiber/fiber/v2"
 	"log"
+	"strings"
 )
 
 // error codes
@@ -15,6 +16,9 @@ func HttpErrorHandler(ctx *fiber.Ctx, err error, errorCode int) error {
 }
 
 func SqlErrorHandler(ctx *fiber.Ctx, err error) error {
+	if strings.Contains(err.Error(), "pq: duplicate key value violates unique constraint") {
+		return ctx.SendStatus(fiber.StatusUnprocessableEntity)
+	}
 	if err.Error() == SqlErr {
 		return ctx.SendStatus(fiber.StatusNotFound)
 	} else {

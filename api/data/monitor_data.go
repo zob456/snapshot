@@ -6,7 +6,6 @@ import (
 	"github.com/zob456/snapshot/api/models"
 	"log"
 )
-
 func SelectNetworkDeviceData(db *sql.DB, machineID uuid.UUID) (*models.NetworkDevice, error) {
 	// comment below is used by Intellij IDEA to provide sql syntax support & sql verification from the data source
 	/*language=PostgreSQL*/

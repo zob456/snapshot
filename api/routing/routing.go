@@ -19,8 +19,6 @@ var (
 func SetUpRoutes(app *fiber.App) {
 	// Init DB connections
 	db := utils.ConnectDB(host, port, user, password, dbName, sslMode)
-
-	// Init Perch Context
 	// Init PerchRouter configDE
 	router := RouterConfig{
 		DB:          db,

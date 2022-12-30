@@ -20,7 +20,6 @@ func SelectNetworkDeviceData(db *sql.DB, machineID uuid.UUID) (*models.NetworkDe
 			"sys_time"
 		FROM "Network"."vw_device"
 		WHERE "ID" = $1;`
-
 	networkDevice := &models.NetworkDevice{}
 	row, err := PostgresScanOneRow(db, query, machineID)
 	if err != nil {

@@ -15,5 +15,4 @@ func ConnectDB(host string, port string, user string, password string, dbName st
 		log.Fatalln(err)
 	}
 	return db
-
 }

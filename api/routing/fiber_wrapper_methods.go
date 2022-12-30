@@ -6,7 +6,7 @@ import (
 )
 
 type RouterConfig struct {
-	DB          *sql.DB
+	DB     *sql.DB
 	Router fiber.Router
 }
 
@@ -23,5 +23,5 @@ func (c *RouterConfig) PUT(path string, handler fiber.Handler) fiber.Router {
 }
 
 func (c *RouterConfig) DELETE(path string, handler fiber.Handler) fiber.Router {
-	return c.Router.Delete(path,  handler)
+	return c.Router.Delete(path, handler)
 }
